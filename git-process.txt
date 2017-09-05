@@ -1,0 +1,9 @@
+Git Steps:
+1) Clone workflow with system already have nodejs installed for GULP & NPM
+2) Create a New Repo "visiteurope" without the readme.md
+3) Open Git cmd and to "visiteurope" directory
+4) Type "git init"
+5) Next type "git remote set-url origin https://github.com/<put your github username here>/visiteurope"
+   => to change the url for this project since before our url was set git Workflow
+6) Next type "git remote add upstream https://github.com/<put your github username here>/visiteurope"
+7) Next type "git push --all"
