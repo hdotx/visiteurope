@@ -1,0 +1,593 @@
+/* In SASS to include another file inside app.scss, we used the following:
+*
+*   via @import '<filename>'  without underscore/underline & file extension
+*
+*   example: Our partial sass variable file is labelled '_variables.scss'
+*            Now to include it we write ==>   @import 'variables';  <== only
+*
+*   Note: This SASS partial file includes process is different
+*         than HTML partial file includes which is not SASS but HTML package,
+*              eg.
+*               <!-- partial:partial/_<filename>.html -->
+*               <!-- partial -->
+*/
+/* Including Google Font directly into the SASS stylesheet 'app.scss'
+*  instead of <link> in the html file via ' @import url(<web link addr)'  */
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans:400,700);
+/* Important to include the variables in SASS before you use them - 1st file to import */
+/* Note: Sass variable must be declared prior and must appear
+         before the css property use/call them */
+/* Sass builtin color function to lighten or darken more of your color
+    == >  lighten($color, $amount)  or darken($color, $amount)  <==
+          $color - color value, eg 888 or whatever
+          $amount - number between 0% to 100%                                */
+/* Importing the Mixins (functions) */
+/* Mixin for learning how to pass value into it
+     and the parameter must be a variable with $<variable name> */
+/* This mixin is powerful because there are unique parameters
+    -- 1st parameter we need to provide an image name.extension
+    -- 2nd parameter has a default value associate with variable
+          so if user does not provide then the variable take the default value
+    -- 3rd parameter also has two default values
+*/
+/* Using typography partial file for fonts styling */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffba00;
+  font-family: "Bitter", serif;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 20px 0px;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Using layout partial file for styling html element */
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0076a3;
+  font-size: 1.2rem;
+  color: #000000;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* making all image responsive in website */
+img {
+  max-width: 100%;
+}
+
+main#main-content {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: #005170;
+}
+
+/* Using Grid partial file (our own Grid system) instead of relying on
+   Bootstrap Grid system */
+.container {
+  margin: 0 auto;
+  width: 75%;
+  *zoom: 1;
+}
+
+.container:before, .container:after {
+  content: ' ';
+  display: table;
+}
+
+.container:after {
+  clear: both;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+.row {
+  *zoom: 1;
+}
+
+.row:before, .row:after {
+  content: ' ';
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+@media only screen and (min-width: 768px) {
+  .row {
+    margin: 0 -1em;
+  }
+}
+
+/* [ *= ] means to look for all match that has a class name containing */
+[class*='column-'] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  padding: 1em;
+  width: 100%;
+}
+
+/* This will be a mobile version */
+/* Note: SASS can perform calculation as for loop */
+@media only screen and (min-width: 768px) {
+  .medium-column-1 {
+    width: 8.33333%;
+  }
+  .medium-column-2 {
+    width: 16.66667%;
+  }
+  .medium-column-3 {
+    width: 25%;
+  }
+  .medium-column-4 {
+    width: 33.33333%;
+  }
+  .medium-column-5 {
+    width: 41.66667%;
+  }
+  .medium-column-6 {
+    width: 50%;
+  }
+  .medium-column-7 {
+    width: 58.33333%;
+  }
+  .medium-column-8 {
+    width: 66.66667%;
+  }
+  .medium-column-9 {
+    width: 75%;
+  }
+  .medium-column-10 {
+    width: 83.33333%;
+  }
+  .medium-column-11 {
+    width: 91.66667%;
+  }
+  .medium-column-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .large-column-1 {
+    width: 8.33333%;
+  }
+  .large-column-2 {
+    width: 16.66667%;
+  }
+  .large-column-3 {
+    width: 25%;
+  }
+  .large-column-4 {
+    width: 33.33333%;
+  }
+  .large-column-5 {
+    width: 41.66667%;
+  }
+  .large-column-6 {
+    width: 50%;
+  }
+  .large-column-7 {
+    width: 58.33333%;
+  }
+  .large-column-8 {
+    width: 66.66667%;
+  }
+  .large-column-9 {
+    width: 75%;
+  }
+  .large-column-10 {
+    width: 83.33333%;
+  }
+  .large-column-11 {
+    width: 91.66667%;
+  }
+  .large-column-12 {
+    width: 100%;
+  }
+}
+
+/* importing navigation styling */
+/* In SASS development, when styling element that is html nested, you also
+   do that in SASS as well                                                   */
+.navigation, .footer-navigation {
+  *zoom: 1;
+  padding: 10px;
+  background-color: #005170;
+}
+
+.navigation:before, .footer-navigation:before, .navigation:after, .footer-navigation:after {
+  content: ' ';
+  display: table;
+}
+
+.navigation:after, .footer-navigation:after {
+  clear: both;
+}
+
+.navigation h2, .footer-navigation h2 {
+  text-align: left;
+  margin: 0;
+}
+
+.navigation h2.nav-title, .footer-navigation h2.nav-title {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation h2.nav-title, .footer-navigation h2.nav-title {
+    display: none;
+  }
+}
+
+.navigation h2.site-name, .footer-navigation h2.site-name {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation h2.site-name, .footer-navigation h2.site-name {
+    display: inline-block;
+  }
+}
+
+.navigation nav, .footer-navigation nav {
+  display: inline;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation nav, .footer-navigation nav {
+    float: right;
+  }
+}
+
+.navigation nav a, .footer-navigation nav a {
+  color: #ffffff;
+  font-size: 1.4rem;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  /*  '&' in SASS means parent selector */
+}
+
+.navigation nav a:hover, .footer-navigation nav a:hover {
+  /* &:hover sames as a:hover selector */
+  color: #ffba00;
+}
+
+@media only screen and (min-width: 768px) {
+  .navigation nav a, .footer-navigation nav a {
+    display: inline;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .navigation nav a, .footer-navigation nav a {
+    margin-right: 20px;
+    /*   '&' in SASS means parent selector
+                     so &:last-child means a:last-child    */
+  }
+  .navigation nav a:last-child, .footer-navigation nav a:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer-navigation {
+  /* @extend is known as a "Directive"; work either for #id or .class
+        -- Meaning that the ".footer-navigation" inherits all
+               the css styling property value from ".navigation" class
+
+     */
+}
+
+.footer-navigation .menu {
+  float: left;
+}
+
+.footer-navigation .menu a {
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+/* importing background image styling */
+.background-image {
+  display: table;
+  /* display: table set a certain width */
+  width: 100%;
+  /*   therefore we need to set our own width */
+  position: relative;
+}
+
+.background-image .content-bg-image {
+  display: table-cell;
+  vertical-align: bottom;
+  padding: 0 20px 20px 20px;
+  position: relative;
+}
+
+.background-image .content-bg-image h1 {
+  font-size: 40px;
+}
+
+.background-image .content-bg-image p {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.london {
+  background: linear-gradient(to bottom, transparent, rgba(80, 0, 0, 0.5)), url("../img/bg/bg01.jpg");
+  /* linear-gradient() - CSS3 property */
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  height: 600px;
+}
+
+.subway {
+  background: linear-gradient(to bottom, transparent, rgba(80, 0, 0, 0.5)), url("../img/bg/bg03.jpg");
+  /* linear-gradient() - CSS3 property */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 300px;
+}
+
+/* importing card styling */
+.card {
+  margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 33.3%;
+    float: left;
+    padding: 0 20px;
+  }
+}
+
+.card .card-content {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: -6px;
+}
+
+.card .card-content h3 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.card .card-content p {
+  font-size: 0.9rem;
+  text-align: justify;
+  margin-bottom: 5px;
+}
+
+.card:after {
+  *zoom: 1;
+}
+
+.card:after:before, .card:after:after {
+  content: ' ';
+  display: table;
+}
+
+.card:after:after {
+  clear: both;
+}
+
+/* importing button styling */
+.btn {
+  border-radius: 5px;
+  display: block;
+  background-color: #ffba00;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: all .3s ease;
+  font-weight: bold;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+.btn:hover {
+  background-color: #997000;
+}
+
+.btn-service {
+  border-radius: 5px;
+  display: block;
+  background-color: #bf0501;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: all .3s ease;
+  font-weight: bold;
+  padding: 10px 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn-service {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+.btn-service:hover {
+  background-color: #f20701;
+}
+
+/* importing gallery styling */
+.gallery {
+  *zoom: 1;
+}
+
+.gallery:before, .gallery:after {
+  content: ' ';
+  display: table;
+}
+
+.gallery:after {
+  clear: both;
+}
+
+.gallery li.image-container {
+  float: left;
+  list-style: none;
+  width: 20.5%;
+}
+
+.gallery li.image-container:nth-child(n) {
+  margin-right: 6%;
+  margin-bottom: 6%;
+}
+
+.gallery li.image-container:nth-child(4n + 1) {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.gallery li.image-container img {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* importing tables styling */
+table {
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  border-collapse: collapse;
+  /* 'border-collapse: collapse' means no padding in between each cell
+       'border-collapse: separate' shows spacing between each cell         */
+}
+
+table > caption {
+  /* '>' means the first child of the table element therefore thecaption
+           is the first child of the table */
+  text-align: left;
+  font-family: "Bitter", serif;
+  font-size: 36px;
+  font-weigth: 700;
+  padding: 5px;
+  color: #ffba00;
+  margin-bottom: 20px;
+}
+
+table thead tr th {
+  background-color: #002c3d;
+  color: #ffffff;
+  font-size: 1.3rem;
+}
+
+table > thead > tr,
+table > tbody > tr {
+  color: #ffffff;
+  background-color: #005170;
+}
+
+table > thead > tr:nth-child(odd),
+table > tbody > tr:nth-child(odd) {
+  background-color: #0076a3;
+}
+
+table > thead > tr:hover,
+table > tbody > tr:hover {
+  background-color: #e6a700;
+}
+
+table > thead > tr th,
+table > thead > tr td,
+table > tbody > tr th,
+table > tbody > tr td {
+  padding: 10px;
+  border-bottom: 1px dotted #005170;
+}
+
+/* importing services styling */
+div #services h2 {
+  font-size: 36px;
+}
+
+div #services .services-list {
+  list-style: none;
+  padding: 0;
+}
+
+div #services .services-list li {
+  text-align: center;
+}
+
+div #services .services-list li h3 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+div #services .services-list li p {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* importing footer styling */
+footer.site-footer {
+  padding-top: 10px;
+  margin-top: 30px;
+  color: #ffffff;
+}
+
+footer.site-footer h2 {
+  margin: 0;
+}
+
+footer.site-footer p.site-info {
+  text-align: center;
+  background-color: #ffba00;
+  color: #005170;
+  margin-top: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
